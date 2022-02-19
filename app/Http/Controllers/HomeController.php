@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Grade;
 use App\Parents;
+use App\Partener;
 use App\Student;
 use App\Teacher;
 use Illuminate\Http\Request;
@@ -34,12 +35,12 @@ class HomeController extends Controller
         $user = Auth::user();
         
         if ($user->hasRole('Admin')) {
-
-            $parents = Parents::latest()->get();
+ 
+            $partenaires=Partener::latest()->get();
             $teachers = Teacher::latest()->get();
             $students = Student::latest()->get();
 
-            return view('home', compact('parents','teachers','students'));
+            return view('home', compact('partenaires','teachers','students'));
 
         } elseif ($user->hasRole('Teacher')) {
 

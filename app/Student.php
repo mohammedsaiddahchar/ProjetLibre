@@ -8,11 +8,12 @@ class Student extends Model
 {
     protected $fillable = [
         'user_id',
-        'parent_id',
         'class_id',
+        'filiere_id',
         'roll_number',
         'gender',
         'phone',
+        'current_Level',
         'dateofbirth',
         'current_address',
         'permanent_address',
@@ -36,5 +37,9 @@ class Student extends Model
     public function attendances() 
     {
         return $this->hasMany(Attendance::class);
+    }
+    public function filiere() 
+    {
+        return $this->belongsTo(Filiere::class, 'filiere_id');
     }
 }

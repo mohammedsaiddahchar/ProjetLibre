@@ -33,9 +33,9 @@ class StudentController extends Controller
     public function create()
     {
         $classes = Grade::latest()->get();
-        $parents = Parents::with('user')->latest()->get();
+    
         
-        return view('backend.students.create', compact('classes','parents'));
+        return view('backend.students.create', compact('classes'));
     }
 
     /**
@@ -120,7 +120,7 @@ class StudentController extends Controller
     public function edit(Student $student)
     {
         $classes = Grade::latest()->get();
-        $parents = Parents::with('user')->latest()->get();
+      
 
         return view('backend.students.edit', compact('classes','parents','student'));
     }

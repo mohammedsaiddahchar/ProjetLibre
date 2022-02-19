@@ -33,13 +33,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $user2->assignRole('Teacher');
 
-        $user3 = User::create([
-            'name'          => 'Parent',
-            'email'         => 'parent@demo.com',
-            'password'      => bcrypt('12345678'),
-            'created_at'    => date("Y-m-d H:i:s")
-        ]);
-        $user3->assignRole('Parent');
+       
 
         $user4 = User::create([
             'name'          => 'Student',
@@ -62,16 +56,7 @@ class DatabaseSeeder extends Seeder
             ]
         ]);
 
-        DB::table('parents')->insert([
-            [
-                'user_id'           => $user3->id,
-                'gender'            => 'male',
-                'phone'             => '0123456789',
-                'current_address'   => 'Dhaka-1215',
-                'permanent_address' => 'Dhaka-1215',
-                'created_at'        => date("Y-m-d H:i:s")
-            ]
-        ]);
+        
 
         DB::table('grades')->insert([
             'teacher_id'        => 1,
@@ -83,7 +68,7 @@ class DatabaseSeeder extends Seeder
         DB::table('students')->insert([
             [
                 'user_id'           => $user4->id,
-                'parent_id'         => 1,
+                'filiere_id'         => 1,
                 'class_id'          => 1,
                 'roll_number'       => 1,
                 'gender'            => 'male',

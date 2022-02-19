@@ -13,6 +13,7 @@ class Teacher extends Model
         'dateofbirth',
         'current_address',
         'permanent_address',
+        'is_president',
     ];
 
     public function user()
