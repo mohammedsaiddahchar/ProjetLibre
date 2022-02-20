@@ -3,7 +3,7 @@
 **LSM System** is a simple role based school management system.
 
 ### Installation
-01. `git clone https://github.com/sanz/laravel-school-management-system.git`
+01. `git clone https://github.com/MohamedBenTaher/ProjetLibre`
 02. `cd laravel-school-management-system`
 03. `composer install`
 04. `npm install`
