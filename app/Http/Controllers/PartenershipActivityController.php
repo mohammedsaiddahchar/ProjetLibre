@@ -23,7 +23,7 @@ class PartenershipActivityController extends Controller
      */
     public function create()
     {
-        $parteners=Partener::with('partner')->latest()->paginate(10);
+        $parteners=Partener::with('partener')->latest()->paginate(10);
         return view('backend.partenershipActivity.create',compact('parteners'));
     }
 
@@ -62,8 +62,8 @@ class PartenershipActivityController extends Controller
      */
     public function show(int $id)
     {
-        $partenershipActivity=PartenershipActivity::get()->where('id',$id);
-        return view('backend.filieres.details', compact('partenershipActivity'));
+        $pact=PartenershipActivity::get()->where('id',$id);
+        return view('backend.filieres.details', compact('pact'));
     }
 
     /**

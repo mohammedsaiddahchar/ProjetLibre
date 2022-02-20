@@ -16,12 +16,12 @@
         </div>
 
         <div class="table w-full mt-8 bg-white rounded">
-            <form action="{{ route('filiere.store') }}" method="POST" class="w-full max-w-xl px-6 py-12">
+            <form action="{{ route('filieres.store') }}" method="POST" class="w-full max-w-xl px-6 py-12">
                 @csrf
                 <div class="md:flex md:items-center mb-6">
                     <div class="md:w-1/3">
                         <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                            Nom Filiere ""
+                            Nom Filiere 
                         </label>
                     </div>
                     <div class="md:w-2/3">
@@ -38,7 +38,7 @@
                         </label>
                     </div>
                     <div class="md:w-2/3">
-                        <input name="code" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="number" value="{{ old('subject_code') }}">
+                        <input name="code" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500" type="text" value="{{ old('code') }}">
                         @error('code')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
@@ -65,7 +65,7 @@
                     </div>
                     <div class="md:w-2/3 block text-gray-600 font-bold">
                         <div class="relative">
-                            <select name="teacher_id" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                            <select name="id_teacher" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" value="{{ old('description') }}">
                                 <option value="">--Select Teacher--</option>
                                 @foreach ($teachers as $teacher)
                                     <option value="{{ $teacher->id }}">{{ $teacher->user->name }}</option>
@@ -75,7 +75,7 @@
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                             </div>
                         </div>
-                        @error('teacher_id')
+                        @error('id_teacher')
                             <p class="text-red-500 text-xs font-normal italic">{{ $message }}</p>
                         @enderror
                     </div>

@@ -80,9 +80,9 @@ class PartenerController extends Controller
      */
     public function show(int $id)
     {
-        $partener=Partener::get()->where('id',$id);
+        $partener=Partener::get()->where('id',$id)->first();
         $pActs=PartenershipActivity::get()->where('partener_id',$id);
-        return view('backend.partener.details', compact('partener','pActs'));
+        return view('backend.parteners.show', compact('partener','pActs'));
     }
 
     /**

@@ -49,7 +49,7 @@
                         </label>
                     </div>
                     <div class="md:w-2/3">
-                        <span class="text-gray-600 font-bold">{{ $activity->Type }}</span>
+                        <span class="text-gray-600 font-bold">{{ $activity->details }}</span>
                     </div>
                 </div>
                 

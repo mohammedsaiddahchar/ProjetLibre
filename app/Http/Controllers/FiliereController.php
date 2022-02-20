@@ -52,7 +52,7 @@ class FiliereController extends Controller
             'Nom'           => $request->name,
             'code'          => $request->code,
             'id_teacher'    => $request->id_teacher,
-            'Description'   => $request->description
+            'description'   => $request->description
         ]);
 
         return redirect()->route('filiere.index');
@@ -66,7 +66,7 @@ class FiliereController extends Controller
      */
     public function show(int $id)
     {
-        $filiere=Filiere::get()->where('id',$id);
+        $filiere=Filiere::get()->where('id',$id)->first();
         $teacher=Teacher::get()->where('user_id',$filiere->id_teacher);
         $actvities=Activity::with('activity')->latest()->paginate(10);
         return view('backend.filiere.details', compact('filiere','teacher','activities'));
@@ -78,11 +78,10 @@ class FiliereController extends Controller
      * @param  \App\Filiere  $filiere
      * @return \Illuminate\Http\Response
      */
-    public function edit(int $id)
+    public function edit(Filiere $filiere)
     {
-        $filiere=Filiere::get()->where('id',$id);
         $teachers = Teacher::with('user')->latest()->paginate(10);
-        return view('backend.filiere.edit', compact('filiere','teachers'));
+        return view('backend.filieres.edit', compact('filiere','teachers'));
     }
 
     /**
@@ -105,7 +104,7 @@ class FiliereController extends Controller
             'Nom'           => $request->name,
             'code'          => $request->code,
             'id_teacher'    => $request->id_teacher,
-            'Description'   => $request->description
+            'description'   => $request->description
         ]);
 
         return redirect()->route('filiere.index');
@@ -117,7 +116,7 @@ class FiliereController extends Controller
      * @param  \App\Filiere  $filiere
      * @return \Illuminate\Http\Response
      */
-    public function destroy(int $id)
+    public function destroy($id)
     {
         $filiere=Filiere::get()->where('id',$id);
         $filiere->delete();

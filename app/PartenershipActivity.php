@@ -16,7 +16,7 @@ class PartenershipActivity extends Model
          
 
     ];
-    public function partner()
+    public function partener()
     {
         return $this->belongsTo(Partener::class,'partener_id');
     }

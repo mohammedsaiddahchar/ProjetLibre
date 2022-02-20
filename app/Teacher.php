@@ -35,4 +35,8 @@ class Teacher extends Model
     {
         return $this->classes()->withCount('students');
     }
+    public function filiere()
+    {
+        return $this->hasOne(Filiere::class,'user_id');
+    }
 }

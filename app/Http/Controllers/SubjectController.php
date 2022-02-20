@@ -51,6 +51,7 @@ class SubjectController extends Controller
 
         Subject::create([
             'name'          => $request->name,
+            'level'          => $request->level,
             'slug'          => Str::slug($request->name),
             'subject_code'  => $request->subject_code,
             'teacher_id'    => $request->teacher_id,

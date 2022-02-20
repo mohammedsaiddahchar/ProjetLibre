@@ -12,11 +12,11 @@ class Filiere extends Model
         'Nom',
         'code',
         'Description',
-        'id_teacher',
+        'id',
         
     ];
     public function teacher(){
-        return $this->hasOne(Teacher::class,'id_teacher');
+        return $this->hasOne(Teacher::class,'id');
     }
     public function student()
     {
